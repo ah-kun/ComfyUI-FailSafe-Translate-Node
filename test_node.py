@@ -53,5 +53,14 @@ def test_node():
     except Exception as e:
         print(f"Test 5 failed: {e}")
 
+    print("\nTest 6: Bypass Translation")
+    try:
+        result = adv_node.translate("Bypass Me", "[No Translation]", "es", "raise", 3, 1.0)
+        print(f"Result (should be 'Bypass Me'): {result[0]}")
+        if result[0] != "Bypass Me":
+             print("Test 6 failed: Result does not match input.")
+    except Exception as e:
+        print(f"Test 6 failed: {e}")
+
 if __name__ == "__main__":
     test_node()

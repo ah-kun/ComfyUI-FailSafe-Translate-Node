@@ -4,7 +4,8 @@ from deep_translator import GoogleTranslator
 # Supported languages list
 LANGUAGES = [
     "auto", "en", "ja", "zh-CN", "zh-TW", "ko", "fr", "de", "es", "it", "ru", 
-    "pt", "nl", "pl", "tr", "ar", "hi", "bn", "pa", "jv", "ms", "vi", "th", "id"
+    "pt", "nl", "pl", "tr", "ar", "hi", "bn", "pa", "jw", "ms", "vi", "th", "id",
+    "[No Translation]"
 ]
 
 class FailSafeTranslateNode:
@@ -26,6 +27,9 @@ class FailSafeTranslateNode:
     CATEGORY = "utils/text"
 
     def translate_logic(self, text, src_lang, dest_lang, retries, retry_wait_sec, fail_mode):
+        if src_lang == "[No Translation]":
+            return (text,)
+
         # Cache check
         current_request = (text, src_lang, dest_lang)
         if self.last_request == current_request:
@@ -91,7 +95,7 @@ class FailSafeTranslateAdvanced(FailSafeTranslateNode):
         return {
             "required": {
                 "text": ("STRING", {"multiline": True}),
-                "src_lang": (LANGUAGES,),
+                "src_lang": ([l for l in LANGUAGES if l != "auto"], {"default": "en"}),
                 "dest_lang": (LANGUAGES,),
                 "fail_mode": (["return_input", "return_cached", "return_error", "raise"],),
                 "retries": ("INT", {"default": 3, "min": 0, "max": 10}),

@@ -14,7 +14,7 @@ A fail-safe Google Translate node for ComfyUI, designed to handle network flakin
 
 ## Supported Languages
 
-`auto, en, ja, zh-CN, zh-TW, ko, fr, de, es, it, ru, pt, nl, pl, tr, ar, hi, bn, pa, jv, ms, vi, th, id`
+`auto, en, ja, zh-CN, zh-TW, ko, fr, de, es, it, ru, pt, nl, pl, tr, ar, hi, bn, pa, jw, ms, vi, th, id, [No Translation]`
 
 ## Installation
 
@@ -35,13 +35,13 @@ A fail-safe Google Translate node for ComfyUI, designed to handle network flakin
 #### 1. Prompt Translate (Google, Fail-safe)
 *Simple mode for quick translation to English.*
 - **text**: Input text (multiline).
-- **src_lang**: Source language (or 'auto').
+- **src_lang**: Source language (or 'auto', or '[No Translation]').
 - **Output**: English translation.
 
 #### 2. Prompt Translate (Google, Fail-safe, Advanced)
 *Advanced mode with full configuration.*
 - **text**: Input text.
-- **src_lang**: Source language.
+- **src_lang**: Source language (default: 'en', 'auto' removed).
 - **dest_lang**: Target language.
 - **fail_mode**: Behavior when translation fails after retries:
     - `return_input`: Returns the original text.
@@ -73,7 +73,7 @@ ComfyUI用のフェイルセーフなGoogle翻訳ノードです。ネットワ�
 
 ## 対応言語
 
-`auto, en, ja, zh-CN, zh-TW, ko, fr, de, es, it, ru, pt, nl, pl, tr, ar, hi, bn, pa, jv, ms, vi, th, id`
+`auto, en, ja, zh-CN, zh-TW, ko, fr, de, es, it, ru, pt, nl, pl, tr, ar, hi, bn, pa, jw, ms, vi, th, id, [No Translation]`
 
 ## インストール
 
@@ -94,13 +94,13 @@ ComfyUI用のフェイルセーフなGoogle翻訳ノードです。ネットワ�
 #### 1. Prompt Translate (Google, Fail-safe)
 *英語への素早い翻訳のためのシンプルモード。*
 - **text**: 入力テキスト（複数行）。
-- **src_lang**: 元の言語（または 'auto'）。
+- **src_lang**: 元の言語（または 'auto'、または '[No Translation]'）。
 - **Output**: 英語の翻訳結果。
 
 #### 2. Prompt Translate (Google, Fail-safe, Advanced)
 *完全な設定が可能なアドバンスドモード。*
 - **text**: 入力テキスト。
-- **src_lang**: 元の言語。
+- **src_lang**: 元の言語（デフォルト: 'en'、'auto'は除外）。
 - **dest_lang**: 翻訳先の言語。
 - **fail_mode**: リトライ後の翻訳失敗時の動作:
     - `return_input`: 元のテキストを返します。
