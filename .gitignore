@@ -40,3 +40,6 @@ venv.bak/
 # ComfyUI
 output/
 temp/
+
+# FailSafe Translate (stores API keys locally - keep private)
+failsafe_translate_config.json
