@@ -1,7 +1,7 @@
 [project]
 name = "failsafe-translate-node"
-description = "Fail-safe Google Translate prompt node for ComfyUI (retry + caching)."
-version = "1.0.0"
+description = "Fail-safe Google Translate node for ComfyUI with local CPU Marian/OPUS fallback."  
+version = "1.1.0"
 license = {file = "LICENSE"} 
 # classifiers = [
 #     # For OS-independent nodes (works on all operating systems)
@@ -20,7 +20,12 @@ license = {file = "LICENSE"}
 #     "Environment :: GPU :: Apple Metal",    # Apple Metal support
 # ]
 
-dependencies = ["deep-translator==1.11.4"]
+dependencies = [
+    "deep-translator==1.11.4",
+    "transformers>=4.40",
+    "sentencepiece>=0.2.0",
+    "sacremoses>=0.1.1",
+]
 
 [project.urls]
 Repository = "https://github.com/ah-kun/ComfyUI-FailSafe-Translate-Node"
